@@ -1,0 +1,35 @@
+[General]
+#!include Config-Snippet/General.dconf
+
+[Proxy]
+#!include Config-Snippet/Proxy.dconf
+
+[Proxy Group]
+#!include Config-Snippet/Proxy_Group.dconf
+
+[Rule]
+#!include Config-Snippet/Rule.dconf
+
+[Ruleset Direct]
+#!include Inline-Ruleset/Direct.dconf
+
+[Ruleset Emby]
+#!include Inline-Ruleset/Emby.dconf
+
+[Ruleset Emby-Switch]
+#!include Inline-Ruleset/Emby-Switch.dconf
+
+[Host]
+#!include Config-Snippet/Host.dconf
+
+[MITM]
+#!include Config-Snippet/Mitm.dconf
+
+[MTProto]
+#!include Config-Snippet/Mtproto.dconf
+
+[Script]
+#!include Config-Snippet/Script.dconf
+
+[Keystore]
+#!include Config-Snippet/Keystore.dconf
