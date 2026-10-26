@@ -1,4 +1,5 @@
 #!name=七猫小说去广告
+#!version=1.1.0
 #!desc=移除七猫免费小说的开屏、章节间、阅读页、书城、个人中心等广告，屏蔽穿山甲、优量汇、阿里妈妈、快手、百度、京东、1RTB 等第三方广告 SDK（域名均经真机抓包确认）。注意：xiaoshuo.wtzw.com 接口启用证书固定(certificate pinning)无法解密，章节末尾插页广告位的配置仍会下发，此为该 App 的硬限制；但广告素材域名已全部阻断，重启 App 清除已缓存素材后插页将无法加载内容。
 #!author=zhiaon
 #!icon=https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/SevenCat.png

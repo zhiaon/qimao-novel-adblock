@@ -1,0 +1,85 @@
+# 更新日志
+
+## v1.1.0 (2026-10-26)
+
+真机抓包验证后的修正版。规则数 **40 → 55**。
+
+### 修复
+
+**穿山甲域名写错** — 原写 `pglstatp-toutiao.com`，抓包显示七猫实际用 `pangolin-sdk-toutiao.com`，等于白写了。改为 `DOMAIN-SUFFIX` 覆盖全部三个变体：
+
+- `pangolin-sdk-toutiao.com`
+- `pangolin-sdk-toutiao1.com`
+- `pangolin-sdk-toutiao-b.com`
+
+另补字节素材 CDN：`pglstatp-toutiao.com`、`pstatp.com`。
+
+### 新增
+
+真机抓 22 秒 / 38 条请求，发现以下广告网络**完全未覆盖**（原先直通），现已阻断：
+
+| 广告网络 | 新增域名 | 来源证据 |
+|---|---|---|
+| 优量汇 GDT | `e.qq.com` | 原只写了 `gdt.qq.com`，实测七猫用 `sdk.e.qq.com` |
+| 阿里妈妈 Alimama | `alimama.com` / `tanx.com` / `mmstat.com` | 插页"淘宝下载"广告，角标 **AM** |
+| 1RTB 广告聚合 | `1rtb.net` | 实测 `sdk.1rtb.net` |
+| UC 联盟 | `sdk-log.partner.sm.cn` / `huichuan.sm.cn` / `c.sm.cn` | 实测，仅取广告子域，不影响神马搜索 |
+| 快手 | `adukwai.com` / `kwaix.com` | 原只写了单域 `p1-lm.adukwai.com` |
+| 百度 / 京东 | `mobads.baidu.com` / `adx.jd.com` / `dsp-x.jd.com` | 百度联盟与京东 DSP |
+
+### 已知限制（真机验证）
+
+七猫核心接口 `xiaoshuo.wtzw.com` 启用**证书固定（certificate pinning）**，Surge 无法解密：
+
+```
+TLS handshake with xiaoshuo.wtzw.com failed
+Client closed connection ... because of certificate pinning
+```
+
+因此章节末尾插页广告的**广告位配置**仍会下发，广告位本身无法移除——这是该 App 的硬限制。但所有广告素材域名已阻断，**重启 App 清除已缓存素材后**，插页无法加载内容（显示空框）。
+
+---
+
+## v1.0.0 (2026-10-26)
+
+初版。综合 luestr(可莉🅥)、fmz200(奶思)、zirawell 三个开源实现，适配 Surge。
+
+**七猫自家广告域**
+
+- `wtzw.com`：`ad` / `cdn-ad` / `cdn-new-ad` / `drs-ipv6`
+- `52qumao.com`：`ad-drs` / `ad-drs-ipv6` / `api-adx`
+- `qm989.com`：`a-remad`
+
+**广告配置接口拒绝**
+
+`api-cfg.wtzw.com` 的 `splash`（开屏）/ `adv` / `reward` / `offline-adv`。
+
+**8 条 Map Local 空 JSON**
+
+书城 `config` / `push-book`、搜索运营位、红包任务、提现初始化、段落复制、`ad_personal_switch`。
+
+**1 条 Script**
+
+`my-center` 响应改写，删除 `func_area[1,2]` 广告位——等价于 luestr 的 `http-response-jq delpaths`，用 Surge `[Script]` JS 实现。
+
+**第三方 SDK**
+
+穿山甲、优量汇、快手、百度联盟、京东 DSP、腾讯广告图片域。
+
+**13 个 MITM hostname**（`%APPEND%` 追加，不改 CA）
+
+**风控域名处理**
+
+峰控云 `fp-it.fengkongcloud.com` 默认**不拦截**——风控/设备指纹服务，拦截可能影响 App 登录。
+
+---
+
+## 规则来源 / 致谢
+
+- [luestr/ProxyResource](https://github.com/luestr/ProxyResource)（可莉🅥）
+- [fmz200/wool_scripts](https://github.com/fmz200/wool_scripts)（奶思）
+- [zirawell/R-Store](https://github.com/zirawell/R-Store)
+
+## 免责声明
+
+仅供学习与个人使用，请支持正版。使用本模块即视为你已了解并自行承担相应风险。
