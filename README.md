@@ -1,0 +1,45 @@
+# 七猫小说去广告 · Surge 模块
+
+适用于 [Surge](https://nssurge.com) 的七猫免费小说去广告模块。
+
+## 功能
+
+- 屏蔽开屏广告、章节间广告、阅读页底部 banner、书城推荐广告、个人中心广告位
+- 屏蔽七猫自家广告/统计域名（`wtzw.com`、`52qumao.com` 等）
+- 屏蔽第三方广告 SDK：穿山甲（字节）、优量汇 GDT（腾讯）、快手联盟、百度联盟、京东 DSP 等
+- 返回空 JSON 保持 App 正常逻辑，避免白屏/崩溃
+
+> 受限于七猫对 MitM 与 VPN 状态的检测，少量页面广告可能仍残留，可清除 App 缓存或重装后重试。
+
+## 安装
+
+在 Surge 中导入模块（任选其一）：
+
+**方式一：远程模块 URL**
+
+```
+https://raw.githubusercontent.com/zhiaon/qimao-novel-adblock/main/七猫小说去广告.sgmodule
+```
+
+**方式二：本地模块**
+
+下载 [`七猫小说去广告.sgmodule`](七猫小说去广告.sgmodule) 与 [`qimao.js`](qimao.js) 置于同一目录后导入。
+
+## 要求
+
+- Surge ≥ 5.x（支持 `[Map Local]` 与 `[Script]` http-response）
+- 在「设置 → MITM → 配置证书」中信任 Surge CA 证书
+
+## 规则来源 / 致谢
+
+本模块综合参考以下开源项目（致谢）：
+
+- [luestr/ProxyResource](https://github.com/luestr/ProxyResource)（可莉🅥，QingRex 转载）
+- [fmz200/wool_scripts](https://github.com/fmz200/wool_scripts)（奶思）
+- [zirawell/R-Store](https://github.com/zirawell/R-Store)
+
+将 Loon 专有的 `http-response-jq` 改写为 Surge 兼容的 `[Script]` JS 实现。
+
+## 免责声明
+
+仅供学习与个人使用，请支持正版。使用本模块即视为你已了解并自行承担相应风险。
