@@ -1,15 +1,23 @@
 # 七猫小说去广告 · Surge 模块
 
+当前版本：**v1.1.3**（2026-10-28，模块文件 `#!version=1.1.3`）。
+
 适用于 [Surge](https://nssurge.com) 的七猫免费小说去广告模块。
 
 ## 功能
 
 - 屏蔽开屏广告、章节间广告、阅读页底部 banner、书城推荐广告、个人中心广告位
-- 屏蔽七猫自家广告/统计域名（`wtzw.com`、`52qumao.com` 等）
-- 屏蔽第三方广告 SDK：穿山甲（字节）、优量汇 GDT（腾讯）、快手联盟、百度联盟、京东 DSP 等
+- 屏蔽七猫自家广告/统计域名（`wtzw.com`、`52qumao.com`、`qm989.com`、`qimao.com` 等，含七猫自建广告交换平台域名）
+- 屏蔽第三方广告 SDK：穿山甲（字节）、优量汇 GDT（腾讯）、UBiX 天璇、UC 汇川（含 `huichuan-mc.sm.cn` 变体）、快手联盟、百度联盟、京东 DSP 等
 - 返回空 JSON 保持 App 正常逻辑，避免白屏/崩溃
 
 > 受限于七猫对 MitM 与 VPN 状态的检测，少量页面广告可能仍残留，可清除 App 缓存或重装后重试。
+
+## v1.1.3 更新（2026-10-28）
+
+- **补七猫自建广告交换平台域名**：`api-cfg` / `t-adx` / `t-cfg` / `api-eas.52qumao.com`，`mkt` / `tj-adc` / `tjjs` / `dig-cfg` / `t-cfg.wtzw.com`，`a-qmad` / `a6-remad` / `t-remad.qm989.com`，`a-qmad` / `t-qmad.qimao.com`（来源：DD-AD 七猫段）
+- **v1.1.2**：新增 UBiX 天璇广告 `ubixioe.com`（域名取自官方 UBiXAdSDK 二进制：`adx-cfg-u1` / `adx-data-u1` / `entry-su1.ubixioe.com`），新增 UC 汇川变体 `huichuan-mc.sm.cn`
+- **v1.1.1**：`huichuan.sm.cn` 与 `c.sm.cn` 由精确域名改为子域名通配，堵住子域漏网
 
 ## 安装
 
@@ -25,6 +33,8 @@ https://raw.githubusercontent.com/zhiaon/qimao-novel-adblock/main/七猫小说�
 
 下载 [`七猫小说去广告.sgmodule`](七猫小说去广告.sgmodule) 与 [`qimao.js`](qimao.js) 置于同一目录后导入。
 
+升级后需在 Surge 中刷新模块（配置 → 模块 → 七猫小说去广告 → 刷新），或卸载后重新用 URL 安装，否则 Surge 私有缓存可能仍用旧版。
+
 ## 要求
 
 - Surge ≥ 5.x（支持 `[Map Local]` 与 `[Script]` http-response）
@@ -37,6 +47,7 @@ https://raw.githubusercontent.com/zhiaon/qimao-novel-adblock/main/七猫小说�
 - [luestr/ProxyResource](https://github.com/luestr/ProxyResource)（可莉🅥，QingRex 转载）
 - [fmz200/wool_scripts](https://github.com/fmz200/wool_scripts)（奶思）
 - [zirawell/R-Store](https://github.com/zirawell/R-Store)
+- [afwfv/DD-AD](https://github.com/afwfv/DD-AD)（七猫自建广告交换平台域名）
 
 将 Loon 专有的 `http-response-jq` 改写为 Surge 兼容的 `[Script]` JS 实现。
 
