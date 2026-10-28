@@ -1,5 +1,5 @@
 #!name=七猫小说去广告
-#!version=1.1.4
+#!version=1.1.5
 #!desc=移除七猫小说广告。
 #!author=zhiaon
 #!icon=https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/SevenCat.png
@@ -74,6 +74,10 @@ DOMAIN,log.cs.pp.cn,REJECT,extended-matching,pre-matching
 DOMAIN,patriot.cs.pp.cn,REJECT,extended-matching,pre-matching
 DOMAIN,server.m.pp.cn,REJECT,extended-matching,pre-matching
 DOMAIN,u.uc123.com,REJECT,extended-matching,pre-matching
+# 汇川 SSP 与阿里广告（与 huichuan.sm.cn 同列于公开广告规则表，第 10 章淘宝双 11 汇川广告仍在后补查到）
+DOMAIN,hc-ssp.sm.cn,REJECT,extended-matching,pre-matching
+DOMAIN,ai.advertisement.alibabacorp.sm.cn,REJECT,extended-matching,pre-matching
+DOMAIN-SUFFIX,reachmax.cn,REJECT,extended-matching,pre-matching
 # UBiX 天璇广告（七猫阅读页插页角标 UBIX）：域名取自官方 UBiXAdSDK 二进制硬编码
 # adx-cfg-u1.ubixioe.com（配置）、adx-data-u1.ubixioe.com（数据）、entry-su1.ubixioe.com（入口）
 DOMAIN-SUFFIX,ubixioe.com,REJECT,extended-matching,pre-matching
