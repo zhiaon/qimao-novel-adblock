@@ -1,5 +1,5 @@
 #!name=七猫小说去广告
-#!version=1.1.0
+#!version=1.1.1
 #!desc=移除七猫免费小说的开屏、章节间、阅读页、书城、个人中心等广告，屏蔽穿山甲、优量汇、阿里妈妈、快手、百度、京东、1RTB 等第三方广告 SDK（域名均经真机抓包确认）。注意：xiaoshuo.wtzw.com 接口启用证书固定(certificate pinning)无法解密，章节末尾插页广告位的配置仍会下发，此为该 App 的硬限制；但广告素材域名已全部阻断，重启 App 清除已缓存素材后插页将无法加载内容。
 #!author=zhiaon
 #!icon=https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/SevenCat.png
@@ -7,7 +7,7 @@
 #!openUrl=https://apps.apple.com/app/id1387717110
 #!tag=去广告
 #!homepage=https://github.com/zhiaon/qimao-novel-adblock
-#!date=2026-10-26
+#!date=2026-10-28
 
 [Rule]
 # 七猫自家广告 / 统计 / 风控域名
@@ -45,8 +45,8 @@ DOMAIN-SUFFIX,mmstat.com,REJECT,extended-matching,pre-matching
 DOMAIN-SUFFIX,1rtb.net,REJECT,extended-matching,pre-matching
 # UC 联盟广告，实测七猫在用（仅取广告子域，不影响神马搜索本身）
 DOMAIN,sdk-log.partner.sm.cn,REJECT,extended-matching,pre-matching
-DOMAIN,huichuan.sm.cn,REJECT,extended-matching,pre-matching
-DOMAIN,c.sm.cn,REJECT,extended-matching,pre-matching
+DOMAIN-SUFFIX,huichuan.sm.cn,REJECT,extended-matching,pre-matching
+DOMAIN-SUFFIX,c.sm.cn,REJECT,extended-matching,pre-matching
 # 快手广告
 DOMAIN-SUFFIX,adukwai.com,REJECT,extended-matching,pre-matching
 DOMAIN-SUFFIX,kwaix.com,REJECT,extended-matching,pre-matching
