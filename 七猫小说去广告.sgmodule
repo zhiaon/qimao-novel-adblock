@@ -1,5 +1,5 @@
 #!name=七猫小说去广告
-#!version=1.1.2
+#!version=1.1.3
 #!desc=移除七猫免费小说的开屏、章节间、阅读页、书城、个人中心等广告，屏蔽穿山甲、优量汇、阿里妈妈、快手、百度、京东、1RTB、UBiX天璇 等第三方广告 SDK。注意：xiaoshuo.wtzw.com 接口启用证书固定(certificate pinning)无法解密，章节末尾插页广告位的配置仍会下发，此为该 App 的硬限制；但广告素材域名已全部阻断，重启 App 清除已缓存素材后插页将无法加载内容。
 #!author=zhiaon
 #!icon=https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/SevenCat.png
@@ -10,7 +10,7 @@
 #!date=2026-10-28
 
 [Rule]
-# 七猫自家广告 / 统计 / 风控域名
+# 七猫自家广告 / 统计 / 风控域名（新增：七猫自建广告交换平台域名，见 DD-AD 七猫段）
 DOMAIN,ad.wtzw.com,REJECT,extended-matching,pre-matching
 DOMAIN,cdn-ad.wtzw.com,REJECT,extended-matching,pre-matching
 DOMAIN,cdn-new-ad.wtzw.com,REJECT,extended-matching,pre-matching
@@ -18,6 +18,20 @@ DOMAIN,drs-ipv6.wtzw.com,REJECT,extended-matching,pre-matching
 DOMAIN,ad-drs.52qumao.com,REJECT,extended-matching,pre-matching
 DOMAIN,ad-drs-ipv6.52qumao.com,REJECT,extended-matching,pre-matching
 DOMAIN,api-adx.52qumao.com,REJECT,extended-matching,pre-matching
+DOMAIN,api-cfg.52qumao.com,REJECT,extended-matching,pre-matching
+DOMAIN,t-adx.52qumao.com,REJECT,extended-matching,pre-matching
+DOMAIN,t-cfg.52qumao.com,REJECT,extended-matching,pre-matching
+DOMAIN,api-eas.52qumao.com,REJECT,extended-matching,pre-matching
+DOMAIN,mkt.wtzw.com,REJECT,extended-matching,pre-matching
+DOMAIN,tj-adc.wtzw.com,REJECT,extended-matching,pre-matching
+DOMAIN,tjjs.wtzw.com,REJECT,extended-matching,pre-matching
+DOMAIN,dig-cfg.wtzw.com,REJECT,extended-matching,pre-matching
+DOMAIN,t-cfg.wtzw.com,REJECT,extended-matching,pre-matching
+DOMAIN,a-qmad.qm989.com,REJECT,extended-matching,pre-matching
+DOMAIN,a6-remad.qm989.com,REJECT,extended-matching,pre-matching
+DOMAIN,t-remad.qm989.com,REJECT,extended-matching,pre-matching
+DOMAIN,a-qmad.qimao.com,REJECT,extended-matching,pre-matching
+DOMAIN,t-qmad.qimao.com,REJECT,extended-matching,pre-matching
 DOMAIN,a-remad.qm989.com,REJECT,extended-matching,pre-matching
 # 峰控云设备风控域名，默认不拦截（可能影响 App 登录/风控校验），需要时取消下一行注释
 #DOMAIN,fp-it.fengkongcloud.com,REJECT,extended-matching,pre-matching
