@@ -1,5 +1,33 @@
 # 更新日志
 
+## v1.1.3 (2026-10-28)
+
+补七猫自建广告交换平台域名（来源：DD-AD 七猫段，标注为七猫自建广告交换平台（纯广告））。此前模块只覆盖了其中 `api-adx.52qumao.com` 和 `a-remad.qm989.com`，其余全部直通：
+
+- `52qumao.com`：`api-cfg` / `t-adx` / `t-cfg` / `api-eas`
+- `wtzw.com`：`mkt` / `tj-adc` / `tjjs` / `dig-cfg` / `t-cfg`
+- `qm989.com`：`a-qmad` / `a6-remad` / `t-remad`
+- `qimao.com`：`a-qmad` / `t-qmad`
+
+---
+
+## v1.1.2 (2026-10-28)
+
+### 新增
+
+- **UBiX 天璇广告**：`DOMAIN-SUFFIX,ubixioe.com`。UBIX 即 UBiX 天璇（ubixai，官方 SDK 仓库 `ubixai/UBiXAdSDK`），域名取自官方 SDK 二进制硬编码，不是猜测：`adx-cfg-u1.ubixioe.com`（配置）、`adx-data-u1.ubixioe.com`（数据）、`entry-su1.ubixioe.com`（入口），路径 `/mob/sdk/v2/endpoint`、`/mob/sdk/v3/init`。独立广告规则列表亦印证这三个域名，另有 `entry.ubixioe.com` 变体，同样在 `ubixioe.com` 通配内。
+- **UC 汇川变体**：`DOMAIN-SUFFIX,huichuan-mc.sm.cn`，`huichuan.sm.cn` 的通配盖不住它。
+
+---
+
+## v1.1.1 (2026-10-28)
+
+### 修复
+
+- `huichuan.sm.cn` 与 `c.sm.cn` 由精确 `DOMAIN` 改为 `DOMAIN-SUFFIX`，子域名不再漏网。
+
+---
+
 ## v1.1.0 (2026-10-26)
 
 真机抓包验证后的修正版。规则数 **40 → 55**。
@@ -21,7 +49,7 @@
 | 广告网络 | 新增域名 | 来源证据 |
 |---|---|---|
 | 优量汇 GDT | `e.qq.com` | 原只写了 `gdt.qq.com`，实测七猫用 `sdk.e.qq.com` |
-| 阿里妈妈 Alimama | `alimama.com` / `tanx.com` / `mmstat.com` | 插页"淘宝下载"广告，角标 **AM** |
+| 阿里妈妈 Alimama | `alimama.com` / `tanx.com` / `mmstat.com` | 插页\"淘宝下载\"广告，角标 **AM** |
 | 1RTB 广告聚合 | `1rtb.net` | 实测 `sdk.1rtb.net` |
 | UC 联盟 | `sdk-log.partner.sm.cn` / `huichuan.sm.cn` / `c.sm.cn` | 实测，仅取广告子域，不影响神马搜索 |
 | 快手 | `adukwai.com` / `kwaix.com` | 原只写了单域 `p1-lm.adukwai.com` |
@@ -61,10 +89,6 @@ Client closed connection ... because of certificate pinning
 **1 条 Script**
 
 `my-center` 响应改写，删除 `func_area[1,2]` 广告位——等价于 luestr 的 `http-response-jq delpaths`，用 Surge `[Script]` JS 实现。
-
-**第三方 SDK**
-
-穿山甲、优量汇、快手、百度联盟、京东 DSP、腾讯广告图片域。
 
 **13 个 MITM hostname**（`%APPEND%` 追加，不改 CA）
 
