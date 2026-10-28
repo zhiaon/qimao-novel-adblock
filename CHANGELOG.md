@@ -7,6 +7,7 @@
 - **补 `api-cfg.wtzw.com/v*/operation` 拒绝**：此前模块只对带 `ad_personal_switch` 参数的 operation 接口返回空 JSON，运营位配置仍可下发；其他七猫模块（如 fmz200/wool_scripts）对该接口是直接拒绝，本版跟进。
 - **补 UC / 汇川生态广告域名**：`partner.sm.cn`、`iflow.sm.cn`、`iflow.uczzd.cn`、`m.uczzd.cn`、`client.video.ucweb.com`、`cms.ucweb.com`、`dispatcher.upmc.uc.cn`、`log.cs.pp.cn`、`patriot.cs.pp.cn`、`server.m.pp.cn`、`u.uc123.com`，均与 `huichuan.sm.cn` 同列于公开广告规则表（AWAvenue、Cats-Team/AdRules 等），非猜测。
 - 注意：七猫对 MitM 与 VPN 状态有检测，且广告素材可缓存；更新后需在 Surge 刷新模块并彻底退出七猫重进、清除缓存后再验证，否则旧横幅素材仍可显示。
+- 模块文件改名：`七猫小说去广告.sgmodule` → `qimao.sgmodule`，raw 链接改为纯 ASCII，不再出现中文百分号编码；旧中文文件名文件已删除，Surge 里请用新链接重新导入或刷新。
 
 ---
 

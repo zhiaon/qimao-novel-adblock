@@ -18,6 +18,7 @@
 - **补七猫运营配置接口拒绝**：`api-cfg.wtzw.com/v*/operation` 直接拒绝，此前只空返回了带 `ad_personal_switch` 参数的版本，运营位配置仍可下发底部横幅（其他七猫模块亦拒绝该接口）
 - **补 UC / 汇川生态广告域名**：`partner.sm.cn`、`iflow.sm.cn`、`iflow.uczzd.cn`、`m.uczzd.cn`、`client.video.ucweb.com`、`cms.ucweb.com`、`dispatcher.upmc.uc.cn`、`log.cs.pp.cn`、`patriot.cs.pp.cn`、`server.m.pp.cn`、`u.uc123.com`（均与 `huichuan.sm.cn` 同列于公开广告规则表）
 - 更新后如底部横幅仍在：先在 Surge 刷新模块，再彻底退出七猫重进并清除缓存（部分 App 需清缓存或重装后拦截才生效）
+- 模块文件已改名为 `qimao.sgmodule`（原中文文件名已删除），raw 链接不再含中文，不会出现百分号编码
 
 ## v1.1.3 更新（2026-10-28）
 
@@ -32,12 +33,12 @@
 **方式一：远程模块 URL**
 
 ```
-https://raw.githubusercontent.com/zhiaon/qimao-novel-adblock/main/七猫小说去广告.sgmodule
+https://raw.githubusercontent.com/zhiaon/qimao-novel-adblock/main/qimao.sgmodule
 ```
 
 **方式二：本地模块**
 
-下载 [`七猫小说去广告.sgmodule`](七猫小说去广告.sgmodule) 与 [`qimao.js`](qimao.js) 置于同一目录后导入。
+下载 [`qimao.sgmodule`](qimao.sgmodule) 与 [`qimao.js`](qimao.js) 置于同一目录后导入。
 
 升级后需在 Surge 中刷新模块（配置 → 模块 → 七猫小说去广告 → 刷新），或卸载后重新用 URL 安装，否则 Surge 私有缓存可能仍用旧版。
 
