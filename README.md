@@ -1,6 +1,6 @@
 # 七猫小说去广告 · Surge 模块
 
-当前版本：**v1.1.3**（2026-10-28，模块文件 `#!version=1.1.3`）。
+当前版本：**v1.1.4**（2026-10-28，模块文件 `#!version=1.1.4`）。
 
 适用于 [Surge](https://nssurge.com) 的七猫免费小说去广告模块。
 
@@ -12,6 +12,12 @@
 - 返回空 JSON 保持 App 正常逻辑，避免白屏/崩溃
 
 > 受限于七猫对 MitM 与 VPN 状态的检测，少量页面广告可能仍残留，可清除 App 缓存或重装后重试。
+
+## v1.1.4 更新（2026-10-28，针对阅读页底部汇川横幅）
+
+- **补七猫运营配置接口拒绝**：`api-cfg.wtzw.com/v*/operation` 直接拒绝，此前只空返回了带 `ad_personal_switch` 参数的版本，运营位配置仍可下发底部横幅（其他七猫模块亦拒绝该接口）
+- **补 UC / 汇川生态广告域名**：`partner.sm.cn`、`iflow.sm.cn`、`iflow.uczzd.cn`、`m.uczzd.cn`、`client.video.ucweb.com`、`cms.ucweb.com`、`dispatcher.upmc.uc.cn`、`log.cs.pp.cn`、`patriot.cs.pp.cn`、`server.m.pp.cn`、`u.uc123.com`（均与 `huichuan.sm.cn` 同列于公开广告规则表）
+- 更新后如底部横幅仍在：先在 Surge 刷新模块，再彻底退出七猫重进并清除缓存（部分 App 需清缓存或重装后拦截才生效）
 
 ## v1.1.3 更新（2026-10-28）
 

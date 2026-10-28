@@ -1,5 +1,15 @@
 # 更新日志
 
+## v1.1.4 (2026-10-28)
+
+针对阅读页底部汇川横幅（第 6 章截图，底部视频横幅标“汇川广告”）在 v1.1.3 后仍在：
+
+- **补 `api-cfg.wtzw.com/v*/operation` 拒绝**：此前模块只对带 `ad_personal_switch` 参数的 operation 接口返回空 JSON，运营位配置仍可下发；其他七猫模块（如 fmz200/wool_scripts）对该接口是直接拒绝，本版跟进。
+- **补 UC / 汇川生态广告域名**：`partner.sm.cn`、`iflow.sm.cn`、`iflow.uczzd.cn`、`m.uczzd.cn`、`client.video.ucweb.com`、`cms.ucweb.com`、`dispatcher.upmc.uc.cn`、`log.cs.pp.cn`、`patriot.cs.pp.cn`、`server.m.pp.cn`、`u.uc123.com`，均与 `huichuan.sm.cn` 同列于公开广告规则表（AWAvenue、Cats-Team/AdRules 等），非猜测。
+- 注意：七猫对 MitM 与 VPN 状态有检测，且广告素材可缓存；更新后需在 Surge 刷新模块并彻底退出七猫重进、清除缓存后再验证，否则旧横幅素材仍可显示。
+
+---
+
 ## v1.1.3 (2026-10-28)
 
 补七猫自建广告交换平台域名（来源：DD-AD 七猫段，标注为七猫自建广告交换平台（纯广告））。此前模块只覆盖了其中 `api-adx.52qumao.com` 和 `a-remad.qm989.com`，其余全部直通：
